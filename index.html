@@ -303,14 +303,14 @@
 
         select, button {
             width: 100%;
-            padding: 12px; /* Aumentado para toque confortável no touch do iPhone */
+            padding: 12px;
             background: #222;
             color: #fff;
             border: 1px solid #444;
             border-radius: 6px;
             font-size: 15px;
             box-sizing: border-box;
-            -webkit-appearance: none; /* Remove estilo nativo do Safari mobile */
+            -webkit-appearance: none;
         }
 
         select:disabled, button:disabled {
@@ -725,27 +725,28 @@
             }
         }
 
+        // Mapeamento atualizado com os novos nomes em minúsculas (snake_case)
         const bestMatches = {
-            "fire-ice": { name: "Thermal Storm", file: "Thermal_Storm.png" },
-            "ice-fire": { name: "Thermal Storm", file: "Thermal_Storm.png" },
-            "grass-poison": { name: "Bio-Hazard", file: "Bio_Hazard.png" },
-            "poison-grass": { name: "Bio-Hazard", file: "Bio_Hazard.png" },
-            "eletric-ground": { name: "Spark Quake", file: "Spark_Quake.png" },
-            "ground-eletric": { name: "Spark Quake", file: "Spark_Quake.png" },
-            "fighting-bug": { name: "Apex Predator", file: "Apex_Predator.png" },
-            "bug-fighting": { name: "Apex Predator", file: "Apex_Predator.png" },
-            "flying-ghost": { name: "Gale Phantom", file: "Gale_Phantom.png" },
-            "ghost-flying": { name: "Gale Phantom", file: "Gale_Phantom.png" },
-            "psychic-steel": { name: "Psychic Titan", file: "Psychic_Titan.png" },
-            "steel-psychic": { name: "Psychic Titan", file: "Psychic_Titan.png" },
-            "dark-dragon": { name: "Eclipse Abyss", file: "Eclipse_Abyss.png" },
-            "dragon-dark": { name: "Eclipse Abyss", file: "Eclipse_Abyss.png" },
-            "rock-fairy": { name: "Mystic Aegis", file: "Mystic_Aegis.png" },
-            "fairy-rock": { name: "Mystic Aegis", file: "Mystic_Aegis.png" },
-            "water-normal": { name: "Standard Hydro", file: "Standard_Hydro.png" },
-            "normal-water": { name: "Standard Hydro", file: "Standard_Hydro.png" },
-            "dragon-ghost": { name: "Void Singularity (PROIBIDO)", file: "Void_Singularity.png" },
-            "ghost-dragon": { name: "Void Singularity (PROIBIDO)", file: "Void_Singularity.png" }
+            "fire-ice": { name: "Thermal Storm", file: "thermal_storm.png" },
+            "ice-fire": { name: "Thermal Storm", file: "thermal_storm.png" },
+            "grass-poison": { name: "Bio-Hazard", file: "bio_hazard.png" },
+            "poison-grass": { name: "Bio-Hazard", file: "bio_hazard.png" },
+            "eletric-ground": { name: "Spark Quake", file: "spark_quake.png" },
+            "ground-eletric": { name: "Spark Quake", file: "spark_quake.png" },
+            "fighting-bug": { name: "Apex Predator", file: "apex_predator.png" },
+            "bug-fighting": { name: "Apex Predator", file: "apex_predator.png" },
+            "flying-ghost": { name: "Gale Phantom", file: "gale_phantom.png" },
+            "ghost-flying": { name: "Gale Phantom", file: "gale_phantom.png" },
+            "psychic-steel": { name: "Psychic Titan", file: "psychic_titan.png" },
+            "steel-psychic": { name: "Psychic Titan", file: "psychic_titan.png" },
+            "dark-dragon": { name: "Eclipse Abyss", file: "eclipse_abyss.png" },
+            "dragon-dark": { name: "Eclipse Abyss", file: "eclipse_abyss.png" },
+            "rock-fairy": { name: "Mystic Aegis", file: "mystic_aegis.png" },
+            "fairy-rock": { name: "Mystic Aegis", file: "mystic_aegis.png" },
+            "water-normal": { name: "Standard Hydro", file: "standard_hydro.png" },
+            "normal-water": { name: "Standard Hydro", file: "standard_hydro.png" },
+            "dragon-ghost": { name: "Void Singularity (PROIBIDO)", file: "void_singularity.png" },
+            "ghost-dragon": { name: "Void Singularity (PROIBIDO)", file: "void_singularity.png" }
         };
 
         function setSystemControlsEnabled(enabled) {
