@@ -75,7 +75,7 @@
 
         .layer-chassis {
             z-index: 1;
-            background-image: url('wolf_base.png'); 
+            background-image: url('wolf_base.png');
             opacity: 1;
         }
 
@@ -191,14 +191,14 @@
 
         .memory-weapon-img {
             width: 100%;
-            height: 70px; /* Aumentado para melhor visualização */
+            height: 70px;
             object-fit: contain;
-            background: #14141c; /* Fundo ligeiramente mais claro */
-            border: 1px solid #00ffcc; /* Borda destacada em ciano */
+            background: #14141c;
+            border: 1px solid #00ffcc;
             border-radius: 4px;
             margin-top: 3px;
             margin-bottom: 3px;
-            filter: brightness(1.3) contrast(1.15); /* Brilho e contraste realçados */
+            filter: brightness(1.3) contrast(1.15);
             box-shadow: inset 0 0 5px rgba(0, 255, 204, 0.2);
         }
 
@@ -456,7 +456,7 @@
                 <div class="memory-slot-title">Slot 1 (Esquerdo)</div>
                 <div class="memory-data-row">Nome: <span id="info1-name">Wolf Form (Base)</span></div>
                 <div class="memory-data-row">Arma: <span id="info1-weapon">Wolf Calibur</span></div>
-                <img id="info1-img" src="weapon_wolf.png" alt="Arma Slot 1" class="memory-weapon-img">
+                <img id="info1-img" src="wolf_calibur.png" alt="Wolf Calibur" class="memory-weapon-img">
                 <div class="memory-concept-row" id="info1-concept">Foco: Versatilidade tática universal, canalização de energias duplas e combate híbrido (Espada/Pistola) com duplo slot.</div>
             </div>
 
@@ -464,7 +464,7 @@
                 <div class="memory-slot-title">Slot 2 (Direito)</div>
                 <div class="memory-data-row">Nome: <span id="info2-name">Wolf Form (Base)</span></div>
                 <div class="memory-data-row">Arma: <span id="info2-weapon">Wolf Calibur</span></div>
-                <img id="info2-img" src="weapon_wolf.png" alt="Arma Slot 2" class="memory-weapon-img">
+                <img id="info2-img" src="wolf_calibur.png" alt="Wolf Calibur" class="memory-weapon-img">
                 <div class="memory-concept-row" id="info2-concept">Foco: Versatilidade tática universal, canalização de energias duplas e combate híbrido (Espada/Pistola) com duplo slot.</div>
             </div>
         </div>
@@ -561,7 +561,7 @@
             "wolf_base": { 
                 name: "Wolf Form (Base)", 
                 weapon: "Wolf Calibur", 
-                img: "weapon_wolf.png",
+                img: "wolf_calibur.png",
                 concept: "Foco: Versatilidade tática universal, canalização de energias duplas e combate híbrido (Espada/Pistola) com duplo slot." 
             },
             "fire": { 
@@ -681,13 +681,13 @@
             let data1 = (m1 === "None" || !memoryDatabase[m1]) ? memoryDatabase["wolf_base"] : memoryDatabase[m1];
             document.getElementById('info1-name').innerText = data1.name;
             document.getElementById('info1-weapon').innerText = data1.weapon;
-            document.getElementById('info1-img').src = data1.img || "weapon_wolf.png";
+            document.getElementById('info1-img').src = data1.img || "wolf_calibur.png";
             document.getElementById('info1-concept').innerText = data1.concept;
 
             let data2 = (m2 === "None" || !memoryDatabase[m2]) ? memoryDatabase["wolf_base"] : memoryDatabase[m2];
             document.getElementById('info2-name').innerText = data2.name;
             document.getElementById('info2-weapon').innerText = data2.weapon;
-            document.getElementById('info2-img').src = data2.img || "weapon_wolf.png";
+            document.getElementById('info2-img').src = data2.img || "wolf_calibur.png";
             document.getElementById('info2-concept').innerText = data2.concept;
         }
 
@@ -812,7 +812,15 @@
         }
 
         function transformar() {
-            if (isSystemLocked || isInfinitePrimeActive || isOverloadActive) return;
+            if (isSystemLocked || isOverloadActive) return;
+
+            // Se o Infinite Prime estiver ativo ao transformar, desativa-o automaticamente
+            if (isInfinitePrimeActive) {
+                isInfinitePrimeActive = false;
+                const viewport = document.getElementById('riderViewport');
+                viewport.classList.remove('infinite-prime-active');
+                document.getElementById('btnInfinitePrime').style.background = "linear-gradient(135deg, #00ffff, #0055ff, var(--accent-gold))";
+            }
 
             const hasWolf = document.getElementById('chkWolfCoin').checked;
             const m1 = document.getElementById('memory1').value;
@@ -822,6 +830,8 @@
             const chassis = document.getElementById('layerChassis');
             const bestMatchLayer = document.getElementById('layerBestMatch');
             const splitContainer = document.getElementById('riderSplitContainer');
+            const layerOverload = document.getElementById('layerOverload');
+            const layerInfinite = document.getElementById('layerInfinitePrime');
             const armorLeft = document.getElementById('armorLeft');
             const armorRight = document.getElementById('armorRight');
             
@@ -830,6 +840,10 @@
             document.getElementById('console-log').innerHTML = '';
 
             playSound('beep');
+
+            // Garante que as camadas de Overload e Infinite Prime fiquem ocultas ao transformar
+            layerOverload.style.opacity = '0';
+            layerInfinite.style.opacity = '0';
 
             if (!hasWolf) {
                 chassis.style.opacity = '0';
