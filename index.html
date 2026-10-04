@@ -189,6 +189,17 @@
             font-weight: bold;
         }
 
+        .memory-weapon-img {
+            width: 100%;
+            height: 55px;
+            object-fit: contain;
+            background: #0a0a0f;
+            border: 1px solid #222;
+            border-radius: 4px;
+            margin-top: 3px;
+            margin-bottom: 3px;
+        }
+
         .memory-concept-row {
             font-size: 9px;
             color: #b0b0b0;
@@ -443,6 +454,7 @@
                 <div class="memory-slot-title">Slot 1 (Esquerdo)</div>
                 <div class="memory-data-row">Nome: <span id="info1-name">Wolf Form (Base)</span></div>
                 <div class="memory-data-row">Arma: <span id="info1-weapon">Wolf Calibur</span></div>
+                <img id="info1-img" src="weapon_wolf.png" alt="Arma Slot 1" class="memory-weapon-img">
                 <div class="memory-concept-row" id="info1-concept">Foco: Versatilidade tática universal, canalização de energias duplas e combate híbrido (Espada/Pistola) com duplo slot.</div>
             </div>
 
@@ -450,6 +462,7 @@
                 <div class="memory-slot-title">Slot 2 (Direito)</div>
                 <div class="memory-data-row">Nome: <span id="info2-name">Wolf Form (Base)</span></div>
                 <div class="memory-data-row">Arma: <span id="info2-weapon">Wolf Calibur</span></div>
+                <img id="info2-img" src="weapon_wolf.png" alt="Arma Slot 2" class="memory-weapon-img">
                 <div class="memory-concept-row" id="info2-concept">Foco: Versatilidade tática universal, canalização de energias duplas e combate híbrido (Espada/Pistola) com duplo slot.</div>
             </div>
         </div>
@@ -546,96 +559,115 @@
             "wolf_base": { 
                 name: "Wolf Form (Base)", 
                 weapon: "Wolf Calibur", 
+                img: "weapon_wolf.png",
                 concept: "Foco: Versatilidade tática universal, canalização de energias duplas e combate híbrido (Espada/Pistola) com duplo slot." 
             },
             "fire": { 
                 name: "Ignis Saber", 
                 weapon: "Espada de Chama", 
+                img: "weapon_fire.png",
                 concept: "Foco: Dano bruto e calor extremo. Uma espada larga de lâmina incandescente que armazena calor a cada corte." 
             },
             "water": { 
                 name: "Hydro Whip / Gun", 
                 weapon: "Chicote/Pistola Hidráulica", 
+                img: "weapon_water.png",
                 concept: "Foco: Fluidez, pressão e versatilidade. Chicote modular que dispara jatos d'água cortantes sob altíssima pressão." 
             },
             "grass": { 
                 name: "Flora Scythe / Bow", 
                 weapon: "Foice/Arco Orgânico", 
+                img: "weapon_grass.png",
                 concept: "Foco: Alcance, controle de área e regeneração. Estende vinhas de energia para cortes em área ou flechas de espinhos." 
             },
             "eletric": { 
                 name: "Volt Dagger / Railgun", 
                 weapon: "Adagas de Pulso Eletromagnético", 
+                img: "weapon_eletric.png",
                 concept: "Foco: Velocidade e paralisia. Adagas leves que liberam descargas elétricas para sobrecarregar circuitos e nervos." 
             },
             "ice": { 
                 name: "Glacial Lance", 
                 weapon: "Lança Congelante", 
+                img: "weapon_ice.png",
                 concept: "Foco: Controle de temperatura e congelamento. Absorve umidade do ar e congela o ponto de impacto instantaneamente." 
             },
             "fighting": { 
                 name: "Impact Gauntlets", 
                 weapon: "Manoplas de Combate", 
+                img: "weapon_fighting.png",
                 concept: "Foco: Força física pura e combate corpo a corpo. Manoplas blindadas pesadas com pistões que geram ondas de choque." 
             },
             "poison": { 
                 name: "Toxic Needle-Gun", 
                 weapon: "Pistola de Dardos Corrosivos", 
+                img: "weapon_poison.png",
                 concept: "Foco: Dano contínuo (DOT) e corrosão. Dispara agulhas com toxinas sintéticas capazes de derreter armaduras." 
             },
             "ground": { 
                 name: "Quake Hammer", 
                 weapon: "Martelo Sísmico", 
+                img: "weapon_ground.png",
                 concept: "Foco: Estabilidade e impacto sísmico. Martelo massivo que envia ondas de choque pelo solo para desequilibrar o inimigo." 
             },
             "flying": { 
                 name: "Aero Boomerang / Blade", 
                 weapon: "Lâminas Planadoras", 
+                img: "weapon_flying.png",
                 concept: "Foco: Mobilidade aérea e corte pelo vento. Lâminas leves em formato de asas usadas como bumerangues ou cortes à distância." 
             },
             "psychic": { 
                 name: "Psy-Staff / Ring", 
                 weapon: "Bastão Telecinético", 
+                img: "weapon_psychic.png",
                 concept: "Foco: Ataques à distância e manipulação mental. Bastão flutuante comandado por telecinese para rajadas de energia psíquica." 
             },
             "bug": { 
                 name: "Hive Dual Blades", 
                 weapon: "Lâminas Gêmeas de Inseto", 
+                img: "weapon_bug.png",
                 concept: "Foco: Velocidade, enxame e múltiplos ataques. Espadas curtas projetadas para cortes em frações de segundo." 
             },
             "rock": { 
                 name: "Monolith Shield-Blade", 
                 weapon: "Escudo-Lâmina Monolítico", 
+                img: "weapon_rock.png",
                 concept: "Foco: Defesa impenetrável e pancadas pesadas. Escudo indestrutível que absorve impactos e retalha com peso bruto." 
             },
             "ghost": { 
                 name: "Phantom Scythe", 
                 weapon: "Foice Espectral", 
+                img: "weapon_ghost.png",
                 concept: "Foco: Intangibilidade e ataques espirituais. Foice translúcida que atravessa barreiras físicas para atingir diretamente a alma." 
             },
             "dragon": { 
                 name: "Draco Buster", 
                 weapon: "Canhão Dracônico", 
+                img: "weapon_dragon.png",
                 concept: "Foco: Poder devastador e energia elemental suprema. Arma de grosso calibre que canaliza energia bruta em formato de bafo de dragão." 
             },
             "steel": { 
                 name: "Titanium Broadsword", 
                 weapon: "Espada Larga de Titânio", 
+                img: "weapon_steel.png",
                 concept: "Foco: Resistência máxima e corte de precisão. Espada de metal puro extremamente afiada feita para cortar qualquer blindagem." 
             },
             "dark": { 
                 name: "Umbra Claw / Daggers", 
                 weapon: "Garras das Sombras", 
+                img: "weapon_dark.png",
                 concept: "Foco: Golpes sujos, furtividade e ilusões. Adagas ocultas nos antebraços para ataques surpresa e cortinas de fumaça escura." 
             },
             "fairy": { 
                 name: "Pixie Wand-Rifle", 
                 weapon: "Rifle Mágico", 
+                img: "weapon_fairy.png",
                 concept: "Foco: Efeitos especiais, distorção e energia mística. Rifle elegante que dispara feixes capazes de alterar a gravidade ou desestabilizar o alvo." 
             },
             "normal": { 
                 name: "Standard Gear Rifle", 
                 weapon: "Rifle Tático Multiúso", 
+                img: "weapon_normal.png",
                 concept: "Foco: Versatilidade balanceada e combate padrão." 
             }
         };
@@ -647,11 +679,13 @@
             let data1 = (m1 === "None" || !memoryDatabase[m1]) ? memoryDatabase["wolf_base"] : memoryDatabase[m1];
             document.getElementById('info1-name').innerText = data1.name;
             document.getElementById('info1-weapon').innerText = data1.weapon;
+            document.getElementById('info1-img').src = data1.img || "weapon_wolf.png";
             document.getElementById('info1-concept').innerText = data1.concept;
 
             let data2 = (m2 === "None" || !memoryDatabase[m2]) ? memoryDatabase["wolf_base"] : memoryDatabase[m2];
             document.getElementById('info2-name').innerText = data2.name;
             document.getElementById('info2-weapon').innerText = data2.weapon;
+            document.getElementById('info2-img').src = data2.img || "weapon_wolf.png";
             document.getElementById('info2-concept').innerText = data2.concept;
         }
 
@@ -725,7 +759,6 @@
             }
         }
 
-        // Mapeamento atualizado com os novos nomes em minúsculas (snake_case)
         const bestMatches = {
             "fire-ice": { name: "Thermal Storm", file: "thermal_storm.png" },
             "ice-fire": { name: "Thermal Storm", file: "thermal_storm.png" },
