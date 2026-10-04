@@ -1,8 +1,7 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-PT">
 <head>
     <meta charset="UTF-8">
-    <!-- Linha otimizada para iPhone 11 e dispositivos móveis -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Kamen Rider W-Type - Visual Engine</title>
     <style>
@@ -30,13 +29,12 @@
             color: var(--accent-red);
             text-transform: uppercase;
             letter-spacing: 2px;
-            font-size: 22px;
+            font-size: 20px;
             text-align: center;
             text-shadow: 0 0 10px rgba(255, 51, 51, 0.5);
             margin-bottom: 15px;
         }
 
-        /* Layout Principal adaptado para iPhone 11 / Responsivo */
         .main-layout {
             display: flex;
             gap: 15px;
@@ -53,7 +51,7 @@
             width: 280px;
             height: 370px;
             position: relative;
-            background: #000;
+            background: #111;
             border: 4px solid #444;
             border-radius: 15px;
             overflow: hidden;
@@ -77,6 +75,7 @@
             z-index: 1;
             background-image: url('wolf_base.png'); 
             opacity: 1;
+            background-color: #1a0808;
         }
 
         .layer-overload {
@@ -84,6 +83,7 @@
             background-image: url('wolf_overload.png');
             opacity: 0;
             pointer-events: none;
+            background-color: #300030;
         }
 
         .layer-infinite-prime {
@@ -91,6 +91,7 @@
             background-image: url('wolf_infinite_prime.png');
             opacity: 0;
             pointer-events: none;
+            background-color: #003333;
         }
 
         .layer-bestmatch {
@@ -101,6 +102,7 @@
             background-position: center;
             pointer-events: none;
             transition: opacity 0.3s ease-in-out;
+            background-color: #112211;
         }
 
         .rider-split-container {
@@ -122,6 +124,7 @@
             background-repeat: no-repeat;
             position: absolute;
             top: 0;
+            background-color: #1a1a2a;
         }
 
         .rider-half-left { left: 0; background-position: left center; }
@@ -303,14 +306,14 @@
 
         select, button {
             width: 100%;
-            padding: 12px; /* Aumentado para toque confortável no touch do iPhone */
+            padding: 12px;
             background: #222;
             color: #fff;
             border: 1px solid #444;
             border-radius: 6px;
             font-size: 15px;
             box-sizing: border-box;
-            -webkit-appearance: none; /* Remove estilo nativo do Safari mobile */
+            -webkit-appearance: none;
         }
 
         select:disabled, button:disabled {
@@ -463,7 +466,7 @@
 
         <div class="control-group">
             <label for="memory1">Type Memory 1 (Slot Esquerdo):</label>
-            <select id="memory1" onchange="updateMemoryInfo()">
+            <select id="memory1" onchange="updateMemoryAndPreview()">
                 <option value="None">Nenhuma</option>
                 <option value="fire">Fire (Fogo)</option>
                 <option value="water">Water (Água)</option>
@@ -473,671 +476,393 @@
                 <option value="fighting">Fighting (Lutador)</option>
                 <option value="poison">Poison (Veneno)</option>
                 <option value="ground">Ground (Terra)</option>
-                <option value="flying">Flying (Voador)</option>
-                <option value="psychic">Psychic (Psíquico)</option>
-                <option value="bug">Bug (Inseto)</option>
-                <option value="rock">Rock (Pedra)</option>
-                <option value="ghost">Ghost (Fantasma)</option>
-                <option value="dragon">Dragon (Dragão)</option>
-                <option value="dark">Dark (Sombrio)</option>
-                <option value="steel">Steel (Aço)</option>
-                <option value="fairy">Fairy (Fada)</option>
-                <option value="normal">Normal (Normal)</option>
-            </select>
-        </div>
+                <option value="Excelente sacada! Mudar para letras minúsculas (`snake_case`) é a forma definitiva de evitar qualquer conflito de incompatibilidade no GitHub Pages e no iOS. 
 
-        <div class="control-group">
-            <label for="memory2">Type Memory 2 (Slot Direito - Best Match):</label>
-            <select id="memory2" onchange="updateMemoryInfo()">
-                <option value="None">Nenhuma</option>
-                <option value="fire">Fire (Fogo)</option>
-                <option value="water">Water (Água)</option>
-                <option value="grass">Grass (Planta)</option>
-                <option value="eletric">Electric (Elétrico)</option>
-                <option value="ice">Ice (Gelo)</option>
-                <option value="fighting">Fighting (Lutador)</option>
-                <option value="poison">Poison (Veneno)</option>
-                <option value="ground">Ground (Terra)</option>
-                <option value="flying">Flying (Voador)</option>
-                <option value="psychic">Psychic (Psíquico)</option>
-                <option value="bug">Bug (Inseto)</option>
-                <option value="rock">Rock (Pedra)</option>
-                <option value="ghost">Ghost (Fantasma)</option>
-                <option value="dragon">Dragon (Dragão)</option>
-                <option value="dark">Dark (Sombrio)</option>
-                <option value="steel">Steel (Aço)</option>
-                <option value="fairy">Fairy (Fada)</option>
-                <option value="normal">Normal (Normal)</option>
-            </select>
-        </div>
+Com base na imagem que você enviou, todas as referências dos arquivos de imagem no objeto `bestMatches` e nas camadas do código já foram totalmente convertidas para letras minúsculas. 
 
-        <div class="button-row">
-            <button class="btn-hensh" id="btnHenshin" onclick="transformar()">HENSHIN!</button>
-            <button class="btn-overload" id="btnOverload" onclick="toggleOverload()">OVERLOAD!</button>
-            <button class="btn-infinite-prime" id="btnInfinitePrime" style="display: none;" onclick="toggleInfinitePrime()">INFINITE PRIME!</button>
-        </div>
+Aqui está o **código completo e atualizado** pronto para você salvar como `index.html` e substituir lá no GitHub:
 
-        <button class="btn-finisher" id="btnFinisher" onclick="triggerFinisher()">MAXIMUM DRIVE (FINISHER)!</button>
-    </div>
-
-    <div id="console-log">
-        <div class="log-entry">> Sistema W-Type pronto. Insira a Wolf Coin e as Memórias.</div>
-    </div>
-
-    <script>
-        let isOverloadActive = false;
-        let isInfinitePrimeActive = false;
-        let isSystemLocked = false;
-        let cooldownTimer = null;
-        let infiniteUnlocked = false;
-
-        const discoveredBestMatches = new Set();
-        const totalValidBestMatches = 9;
-
-        const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-
-        function initAudioContext() {
-            if (audioCtx.state === 'suspended') {
-                audioCtx.resume();
-            }
+```html
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Kamen Rider W-Type - Visual Engine</title>
+    <style>
+        :root {
+            --bg-color: #08080a;
+            --accent-red: #ff3333;
+            --accent-gold: #ffcc00;
+            --color-text: #e0e0e0;
         }
 
-        const memoryDatabase = {
-            "wolf_base": { 
-                name: "Wolf Form (Base)", 
-                weapon: "Wolf Calibur", 
-                concept: "Foco: Versatilidade tática universal, canalização de energias duplas e combate híbrido (Espada/Pistola) com duplo slot." 
-            },
-            "fire": { 
-                name: "Ignis Saber", 
-                weapon: "Espada de Chama", 
-                concept: "Foco: Dano bruto e calor extremo. Uma espada larga de lâmina incandescente que armazena calor a cada corte." 
-            },
-            "water": { 
-                name: "Hydro Whip / Gun", 
-                weapon: "Chicote/Pistola Hidráulica", 
-                concept: "Foco: Fluidez, pressão e versatilidade. Chicote modular que dispara jatos d'água cortantes sob altíssima pressão." 
-            },
-            "grass": { 
-                name: "Flora Scythe / Bow", 
-                weapon: "Foice/Arco Orgânico", 
-                concept: "Foco: Alcance, controle de área e regeneração. Estende vinhas de energia para cortes em área ou flechas de espinhos." 
-            },
-            "eletric": { 
-                name: "Volt Dagger / Railgun", 
-                weapon: "Adagas de Pulso Eletromagnético", 
-                concept: "Foco: Velocidade e paralisia. Adagas leves que liberam descargas elétricas para sobrecarregar circuitos e nervos." 
-            },
-            "ice": { 
-                name: "Glacial Lance", 
-                weapon: "Lança Congelante", 
-                concept: "Foco: Controle de temperatura e congelamento. Absorve umidade do ar e congela o ponto de impacto instantaneamente." 
-            },
-            "fighting": { 
-                name: "Impact Gauntlets", 
-                weapon: "Manoplas de Combate", 
-                concept: "Foco: Força física pura e combate corpo a corpo. Manoplas blindadas pesadas com pistões que geram ondas de choque." 
-            },
-            "poison": { 
-                name: "Toxic Needle-Gun", 
-                weapon: "Pistola de Dardos Corrosivos", 
-                concept: "Foco: Dano contínuo (DOT) e corrosão. Dispara agulhas com toxinas sintéticas capazes de derreter armaduras." 
-            },
-            "ground": { 
-                name: "Quake Hammer", 
-                weapon: "Martelo Sísmico", 
-                concept: "Foco: Estabilidade e impacto sísmico. Martelo massivo que envia ondas de choque pelo solo para desequilibrar o inimigo." 
-            },
-            "flying": { 
-                name: "Aero Boomerang / Blade", 
-                weapon: "Lâminas Planadoras", 
-                concept: "Foco: Mobilidade aérea e corte pelo vento. Lâminas leves em formato de asas usadas como bumerangues ou cortes à distância." 
-            },
-            "psychic": { 
-                name: "Psy-Staff / Ring", 
-                weapon: "Bastão Telecinético", 
-                concept: "Foco: Ataques à distância e manipulação mental. Bastão flutuante comandado por telecinese para rajadas de energia psíquica." 
-            },
-            "bug": { 
-                name: "Hive Dual Blades", 
-                weapon: "Lâminas Gêmeas de Inseto", 
-                concept: "Foco: Velocidade, enxame e múltiplos ataques. Espadas curtas projetadas para cortes em frações de segundo." 
-            },
-            "rock": { 
-                name: "Monolith Shield-Blade", 
-                weapon: "Escudo-Lâmina Monolítico", 
-                concept: "Foco: Defesa impenetrável e pancadas pesadas. Escudo indestrutível que absorve impactos e retalha com peso bruto." 
-            },
-            "ghost": { 
-                name: "Phantom Scythe", 
-                weapon: "Foice Espectral", 
-                concept: "Foco: Intangibilidade e ataques espirituais. Foice translúcida que atravessa barreiras físicas para atingir diretamente a alma." 
-            },
-            "dragon": { 
-                name: "Draco Buster", 
-                weapon: "Canhão Dracônico", 
-                concept: "Foco: Poder devastador e energia elemental suprema. Arma de grosso calibre que canaliza energia bruta em formato de bafo de dragão." 
-            },
-            "steel": { 
-                name: "Titanium Broadsword", 
-                weapon: "Espada Larga de Titânio", 
-                concept: "Foco: Resistência máxima e corte de precisão. Espada de metal puro extremamente afiada feita para cortar qualquer blindagem." 
-            },
-            "dark": { 
-                name: "Umbra Claw / Daggers", 
-                weapon: "Garras das Sombras", 
-                concept: "Foco: Golpes sujos, furtividade e ilusões. Adagas ocultas nos antebraços para ataques surpresa e cortinas de fumaça escura." 
-            },
-            "fairy": { 
-                name: "Pixie Wand-Rifle", 
-                weapon: "Rifle Mágico", 
-                concept: "Foco: Efeitos especiais, distorção e energia mística. Rifle elegante que dispara feixes capazes de alterar a gravidade ou desestabilizar o alvo." 
-            },
-            "normal": { 
-                name: "Standard Gear Rifle", 
-                weapon: "Rifle Tático Multiúso", 
-                concept: "Foco: Versatilidade balanceada e combate padrão." 
-            }
-        };
-
-        function updateMemoryInfo() {
-            const m1 = document.getElementById('memory1').value;
-            const m2 = document.getElementById('memory2').value;
-
-            let data1 = (m1 === "None" || !memoryDatabase[m1]) ? memoryDatabase["wolf_base"] : memoryDatabase[m1];
-            document.getElementById('info1-name').innerText = data1.name;
-            document.getElementById('info1-weapon').innerText = data1.weapon;
-            document.getElementById('info1-concept').innerText = data1.concept;
-
-            let data2 = (m2 === "None" || !memoryDatabase[m2]) ? memoryDatabase["wolf_base"] : memoryDatabase[m2];
-            document.getElementById('info2-name').innerText = data2.name;
-            document.getElementById('info2-weapon').innerText = data2.weapon;
-            document.getElementById('info2-concept').innerText = data2.concept;
+        body {
+            background-color: var(--bg-color);
+            color: var(--color-text);
+            font-family: 'Courier New', Courier, monospace;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 15px;
+            box-sizing: border-box;
         }
 
-        function playSound(type) {
-            initAudioContext();
-            const osc = audioCtx.createOscillator();
-            const gain = audioCtx.createGain();
-            osc.connect(gain);
-            gain.connect(audioCtx.destination);
-            const now = audioCtx.currentTime;
-
-            if (type === 'beep') {
-                osc.type = 'square';
-                osc.frequency.setValueAtTime(440, now);
-                gain.gain.setValueAtTime(0.1, now);
-                gain.gain.exponentialRampToValueAtTime(0.01, now + 0.15);
-                osc.start(now); osc.stop(now + 0.15);
-            } else if (type === 'henshin') {
-                osc.type = 'sawtooth';
-                osc.frequency.setValueAtTime(150, now);
-                osc.frequency.exponentialRampToValueAtTime(600, now + 0.4);
-                gain.gain.setValueAtTime(0.15, now);
-                gain.gain.exponentialRampToValueAtTime(0.01, now + 0.4);
-                osc.start(now); osc.stop(now + 0.4);
-            } else if (type === 'bestmatch') {
-                osc.type = 'triangle';
-                osc.frequency.setValueAtTime(523.25, now);
-                osc.frequency.setValueAtTime(659.25, now + 0.1);
-                osc.frequency.setValueAtTime(783.99, now + 0.2);
-                osc.frequency.setValueAtTime(1046.50, now + 0.3);
-                gain.gain.setValueAtTime(0.2, now);
-                gain.gain.exponentialRampToValueAtTime(0.01, now + 0.6);
-                osc.start(now); osc.stop(now + 0.6);
-            } else if (type === 'error') {
-                osc.type = 'sawtooth';
-                osc.frequency.setValueAtTime(120, now);
-                osc.frequency.setValueAtTime(80, now + 0.2);
-                gain.gain.setValueAtTime(0.25, now);
-                gain.gain.exponentialRampToValueAtTime(0.01, now + 0.5);
-                osc.start(now); osc.stop(now + 0.5);
-            } else if (type === 'overload') {
-                osc.type = 'square';
-                osc.frequency.setValueAtTime(880, now);
-                osc.frequency.setValueAtTime(440, now + 0.1);
-                gain.gain.setValueAtTime(0.15, now);
-                gain.gain.exponentialRampToValueAtTime(0.01, now + 0.2);
-                osc.start(now); osc.stop(now + 0.2);
-            } else if (type === 'infinite') {
-                osc.type = 'sine';
-                osc.frequency.setValueAtTime(400, now);
-                osc.frequency.exponentialRampToValueAtTime(1200, now + 0.7);
-                gain.gain.setValueAtTime(0.2, now);
-                gain.gain.exponentialRampToValueAtTime(0.01, now + 0.8);
-                osc.start(now); osc.stop(now + 0.8);
-            } else if (type === 'finisher') {
-                osc.type = 'sawtooth';
-                osc.frequency.setValueAtTime(300, now);
-                osc.frequency.exponentialRampToValueAtTime(900, now + 0.8);
-                gain.gain.setValueAtTime(0.25, now);
-                gain.gain.exponentialRampToValueAtTime(0.01, now + 0.9);
-                osc.start(now); osc.stop(now + 0.9);
-            }
+        h1 {
+            color: var(--accent-red);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 20px;
+            text-align: center;
+            text-shadow: 0 0 10px rgba(255, 51, 51, 0.5);
+            margin-bottom: 15px;
         }
 
-        function speakDriverVoice(text) {
-            if ('speechSynthesis' in window) {
-                const utterance = new SpeechSynthesisUtterance(text);
-                utterance.rate = 1.1;
-                utterance.pitch = 0.9;
-                window.speechSynthesis.speak(utterance);
-            }
+        .main-layout {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+            justify-content: center;
+            width: 100%;
+            max-width: 660px;
         }
 
-        const bestMatches = {
-            "fire-ice": { name: "Thermal Storm", file: "Thermal_Storm.png" },
-            "ice-fire": { name: "Thermal Storm", file: "Thermal_Storm.png" },
-            "grass-poison": { name: "Bio-Hazard", file: "Bio_Hazard.png" },
-            "poison-grass": { name: "Bio-Hazard", file: "Bio_Hazard.png" },
-            "eletric-ground": { name: "Spark Quake", file: "Spark_Quake.png" },
-            "ground-eletric": { name: "Spark Quake", file: "Spark_Quake.png" },
-            "fighting-bug": { name: "Apex Predator", file: "Apex_Predator.png" },
-            "bug-fighting": { name: "Apex Predator", file: "Apex_Predator.png" },
-            "flying-ghost": { name: "Gale Phantom", file: "Gale_Phantom.png" },
-            "ghost-flying": { name: "Gale Phantom", file: "Gale_Phantom.png" },
-            "psychic-steel": { name: "Psychic Titan", file: "Psychic_Titan.png" },
-            "steel-psychic": { name: "Psychic Titan", file: "Psychic_Titan.png" },
-            "dark-dragon": { name: "Eclipse Abyss", file: "Eclipse_Abyss.png" },
-            "dragon-dark": { name: "Eclipse Abyss", file: "Eclipse_Abyss.png" },
-            "rock-fairy": { name: "Mystic Aegis", file: "Mystic_Aegis.png" },
-            "fairy-rock": { name: "Mystic Aegis", file: "Mystic_Aegis.png" },
-            "water-normal": { name: "Standard Hydro", file: "Standard_Hydro.png" },
-            "normal-water": { name: "Standard Hydro", file: "Standard_Hydro.png" },
-            "dragon-ghost": { name: "Void Singularity (PROIBIDO)", file: "Void_Singularity.png" },
-            "ghost-dragon": { name: "Void Singularity (PROIBIDO)", file: "Void_Singularity.png" }
-        };
-
-        function setSystemControlsEnabled(enabled) {
-            isSystemLocked = !enabled;
-            document.getElementById('memory1').disabled = !enabled;
-            document.getElementById('memory2').disabled = !enabled;
-            document.getElementById('btnHenshin').disabled = !enabled;
-            document.getElementById('btnOverload').disabled = !enabled;
-            if (infiniteUnlocked) {
-                document.getElementById('btnInfinitePrime').disabled = !enabled;
-            }
-            document.getElementById('btnFinisher').disabled = !enabled;
+        /* --- ÁREA DE VISUALIZAÇÃO DO RIDER --- */
+        .rider-viewport {
+            width: 280px;
+            height: 370px;
+            position: relative;
+            background: #111;
+            border: 4px solid #444;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+            transition: box-shadow 0.3s ease;
         }
 
-        function checkInfinitePrimeUnlock() {
-            if (discoveredBestMatches.size >= totalValidBestMatches && !infiniteUnlocked) {
-                infiniteUnlocked = true;
-                log(`> 🌟 <span class="log-infinite">TODAS AS 9 BEST MATCHES DESCOBERTAS! SINCRONIZAÇÃO SUPREMA EM ANDAMENTO...</span>`, "log-infinite");
-                
-                setTimeout(() => {
-                    const btnInfinite = document.getElementById('btnInfinitePrime');
-                    btnInfinite.style.display = "block";
-                    playSound('infinite');
-                    log(`> ✨ <span class="log-infinite">MODO INFINITE PRIME DESBLOQUEADO! BOTÃO ADICIONADO AO PAINEL.</span>`, "log-infinite");
-                    speakDriverVoice("Infinite Prime Unlocked.");
-                }, 2000);
-            }
+        .rider-layer {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            transition: opacity 0.3s ease-in-out;
         }
 
-        function transformar() {
-            if (isSystemLocked || isInfinitePrimeActive || isOverloadActive) return;
-
-            const hasWolf = document.getElementById('chkWolfCoin').checked;
-            const m1 = document.getElementById('memory1').value;
-            const m2 = document.getElementById('memory2').value;
-            
-            const viewport = document.getElementById('riderViewport');
-            const chassis = document.getElementById('layerChassis');
-            const bestMatchLayer = document.getElementById('layerBestMatch');
-            const splitContainer = document.getElementById('riderSplitContainer');
-            const armorLeft = document.getElementById('armorLeft');
-            const armorRight = document.getElementById('armorRight');
-            
-            viewport.style.animation = '';
-            viewport.classList.remove('error-active', 'anim-wolf-kick', 'anim-dual-break', 'anim-infinite-nova', 'anim-calamity');
-            document.getElementById('console-log').innerHTML = '';
-
-            playSound('beep');
-
-            if (!hasWolf) {
-                chassis.style.opacity = '0';
-                bestMatchLayer.style.opacity = '0';
-                splitContainer.style.opacity = '0';
-                playSound('error');
-                log("> ERRO: Wolf Coin ausente! Chassi inativo.", "log-error");
-                speakDriverVoice("Error. Wolf Coin missing.");
-                return;
-            }
-
-            log("> W-TYPE DRIVER: WOLF COIN DETECTED.");
-            log("> ARE YOU READY?");
-            playSound('henshin');
-            speakDriverVoice("Are you ready?");
-            viewport.style.animation = 'transformation-pulse 0.5s ease-in-out';
-
-            setTimeout(() => {
-                let chave = `${m1}-${m2}`;
-                let matchData = bestMatches[chave];
-
-                chassis.style.opacity = '0';
-                bestMatchLayer.style.opacity = '0';
-                splitContainer.style.opacity = '0';
-
-                if (matchData && matchData.name.includes("PROIBIDO")) {
-                    bestMatchLayer.style.backgroundImage = `url('${matchData.file}')`;
-                    bestMatchLayer.style.opacity = '1';
-                    
-                    log(`> VOID SINGULARITY INICIALIZADA: ${m1.toUpperCase()} + ${m2.toUpperCase()}`);
-
-                    setTimeout(() => {
-                        viewport.classList.add('error-active');
-                        playSound('error');
-                        
-                        log("> 💥 CRITICAL ERROR: SYSTEM INSTABILITY DETECTED!", "log-error");
-                        log("> ⚠️ <span class='log-error'>REACTOR OVERFLOW! EJECTING MEMORIES!</span>", "log-error");
-                        speakDriverVoice("Warning! Critical Error! System unstable!");
-
-                        setSystemControlsEnabled(false);
-
-                        setTimeout(() => {
-                            viewport.classList.remove('error-active');
-                            bestMatchLayer.style.opacity = '0';
-                            chassis.style.opacity = '1';
-                            
-                            document.getElementById('memory1').value = "None";
-                            document.getElementById('memory2').value = "None";
-                            updateMemoryInfo();
-
-                            let timeLeft = 10;
-                            log(`> SISTEMA TRAVADO POR SEGURANÇA. AGUARDE: <span class="log-warning">${timeLeft}s</span>`, "log-warning");
-
-                            if (cooldownTimer) clearInterval(cooldownTimer);
-
-                            cooldownTimer = setInterval(() => {
-                                timeLeft--;
-                                if (timeLeft > 0) {
-                                    const logs = document.querySelectorAll('.log-entry');
-                                    logs[logs.length - 1].innerHTML = `> SISTEMA TRAVADO POR SEGURANÇA. AGUARDE: <span class="log-warning">${timeLeft}s</span>`;
-                                } else {
-                                    clearInterval(cooldownTimer);
-                                    setSystemControlsEnabled(true);
-                                    playSound('beep');
-                                    log("> ✅ DRIVER ESTABILIZADO. SELEÇÃO RECONECTADA.", "log-highlight");
-                                    speakDriverVoice("System stabilized.");
-                                }
-                            }, 1000);
-                        }, 1500);
-                    }, 2000);
-                    return;
-                }
-
-                if (m1 === "None" && m2 === "None") {
-                    chassis.style.opacity = '1';
-                    log("> PURE BASE! WOLF FORM KINETIC HUNT!");
-                    speakDriverVoice("Wolf Form Hunt!");
-                } 
-                else if (m1 !== "None" && m2 === "None") {
-                    splitContainer.style.opacity = '1';
-                    armorLeft.style.backgroundImage = `url('memory_${m1}.png')`;
-                    armorRight.style.backgroundImage = `url('memory_${m1}.png')`;
-                    log(`> FULL HUNT! WOLF FORM & <span class="log-highlight">${m1.toUpperCase()}</span>!`);
-                    speakDriverVoice(`Wolf and ${m1}!`);
-                } 
-                else if (m1 === "None" && m2 !== "None") {
-                    splitContainer.style.opacity = '1';
-                    armorLeft.style.backgroundImage = `url('memory_${m2}.png')`;
-                    armorRight.style.backgroundImage = `url('memory_${m2}.png')`;
-                    log(`> FULL HUNT! WOLF FORM & <span class="log-highlight">${m2.toUpperCase()}</span>!`);
-                    speakDriverVoice(`Wolf and ${m2}!`);
-                } 
-                else {
-                    if (matchData) {
-                        bestMatchLayer.style.backgroundImage = `url('${matchData.file}')`;
-                        bestMatchLayer.style.opacity = '1';
-
-                        playSound('bestmatch');
-                        discoveredBestMatches.add(chave);
-                        log(`<span class="log-highlight">> BEST MATCH! ${matchData.name.toUpperCase()}!</span>`);
-                        log(`<span class="log-highlight">> PACK HUNTING WITH WOLF FORM! YEAH!</span>`);
-                        log(`> Progresso Best Matches: <span class="log-highlight">${discoveredBestMatches.size}/${totalValidBestMatches}</span>`);
-                        speakDriverVoice(`Best Match! ${matchData.name}`);
-                        checkInfinitePrimeUnlock();
-                    } else {
-                        splitContainer.style.opacity = '1';
-                        armorLeft.style.backgroundImage = `url('memory_${m1}.png')`;
-                        armorRight.style.backgroundImage = `url('memory_${m2}.png')`;
-
-                        log(`> MISTURA INSTÁVEL: ${m1.toUpperCase()} + ${m2.toUpperCase()}`);
-                        speakDriverVoice("Unstable match.");
-                    }
-                }
-            }, 400);
+        .layer-chassis {
+            z-index: 1;
+            background-image: url('wolf_base.png'); 
+            opacity: 1;
+            background-color: #1a0808;
         }
 
-        function toggleOverload() {
-            if (isSystemLocked) return;
-
-            const hasWolf = document.getElementById('chkWolfCoin').checked;
-            const viewport = document.getElementById('riderViewport');
-            const btnOverload = document.getElementById('btnOverload');
-            const chassis = document.getElementById('layerChassis');
-            const bestMatchLayer = document.getElementById('layerBestMatch');
-            const splitContainer = document.getElementById('riderSplitContainer');
-            const layerOverload = document.getElementById('layerOverload');
-            const layerInfinite = document.getElementById('layerInfinitePrime');
-            
-            if (!hasWolf) {
-                playSound('error');
-                log("> ERRO CRÍTICO: Impossível alterar Overload sem a Wolf Coin!", "log-error");
-                speakDriverVoice("Error. Wolf Coin required.");
-                return;
-            }
-
-            if (!isOverloadActive) {
-                isOverloadActive = true;
-
-                if (isInfinitePrimeActive) {
-                    isInfinitePrimeActive = false;
-                    viewport.classList.remove('infinite-prime-active');
-                    document.getElementById('btnInfinitePrime').style.background = "linear-gradient(135deg, #00ffff, #0055ff, var(--accent-gold))";
-                }
-
-                viewport.classList.add('overload-active');
-                btnOverload.style.background = "linear-gradient(135deg, #c0392b, #ff00ff)";
-                
-                chassis.style.opacity = '0';
-                bestMatchLayer.style.opacity = '0';
-                splitContainer.style.opacity = '0';
-                layerInfinite.style.opacity = '0';
-                layerOverload.style.opacity = '1';
-
-                playSound('overload');
-                
-                log("> ⚠️ WARNING! WARNING! OVERLOAD TRIGGER ENGAGED!", "log-overload");
-                log("> MAXIMUM DRIVER INSTABILITY REACHED!", "log-overload");
-                log("> WOLF FORM ENERGY SURGE: <span class='log-overload'>1000% CAPACITY EXCEEDED!</span>");
-                speakDriverVoice("Overload mode engaged!");
-            } else {
-                isOverloadActive = false;
-                viewport.classList.remove('overload-active');
-                btnOverload.style.background = "linear-gradient(135deg, #8e44ad, #b53737)";
-                
-                layerOverload.style.opacity = '0';
-                chassis.style.opacity = '1';
-
-                playSound('beep');
-                
-                log("> ❄️ OVERLOAD DESATIVADO. INICIANDO PURGA TÉRMICA...", "log-warning");
-                speakDriverVoice("Overload deactivated. Thermal purge.");
-                
-                setSystemControlsEnabled(false);
-
-                let timeLeft = 10;
-                log(`> SISTEMA TRAVADO. AGUARDE: <span class="log-warning">${timeLeft}s</span>`, "log-warning");
-
-                if (cooldownTimer) clearInterval(cooldownTimer);
-
-                cooldownTimer = setInterval(() => {
-                    timeLeft--;
-                    if (timeLeft > 0) {
-                        const logs = document.querySelectorAll('.log-entry');
-                        logs[logs.length - 1].innerHTML = `> SISTEMA TRAVADO. AGUARDE: <span class="log-warning">${timeLeft}s</span>`;
-                    } else {
-                        clearInterval(cooldownTimer);
-                        setSystemControlsEnabled(true);
-                        playSound('beep');
-                        log("> ✅ Driver resfriado. Seleção de memórias liberada.", "log-highlight");
-                        speakDriverVoice("System ready.");
-                    }
-                }, 1000);
-            }
+        .layer-overload {
+            z-index: 3;
+            background-image: url('wolf_overload.png');
+            opacity: 0;
+            pointer-events: none;
+            background-color: #300030;
         }
 
-        function toggleInfinitePrime() {
-            if (isSystemLocked) return;
-
-            const viewport = document.getElementById('riderViewport');
-            const btnInfinite = document.getElementById('btnInfinitePrime');
-            const chassis = document.getElementById('layerChassis');
-            const bestMatchLayer = document.getElementById('layerBestMatch');
-            const splitContainer = document.getElementById('riderSplitContainer');
-            const layerOverload = document.getElementById('layerOverload');
-            const layerInfinite = document.getElementById('layerInfinitePrime');
-
-            if (!isInfinitePrimeActive) {
-                isInfinitePrimeActive = true;
-                
-                if (isOverloadActive) {
-                    isOverloadActive = false;
-                    viewport.classList.remove('overload-active');
-                    document.getElementById('btnOverload').style.background = "linear-gradient(135deg, #8e44ad, #b53737)";
-                }
-
-                viewport.classList.add('infinite-prime-active');
-                btnInfinite.style.background = "linear-gradient(135deg, #ffffff, #00ffff, #ffcc00)";
-                
-                chassis.style.opacity = '0';
-                bestMatchLayer.style.opacity = '0';
-                splitContainer.style.opacity = '0';
-                layerOverload.style.opacity = '0';
-                layerInfinite.style.opacity = '1';
-
-                playSound('infinite');
-
-                log("> 🌌 INFINITE PRIME SEQUENCE ENGAGED!", "log-infinite");
-                log("> 🧬 WOLF FORM SYNCHRONIZATION AT 10000%!", "log-infinite");
-                log("> ✨ <span class='log-infinite'>WOLF INFINITE PRIME FORM MANIFESTED!</span>", "log-infinite");
-                speakDriverVoice("Infinite Prime... System Ascension!");
-            } else {
-                isInfinitePrimeActive = false;
-                viewport.classList.remove('infinite-prime-active');
-                btnInfinite.style.background = "linear-gradient(135deg, #00ffff, #0055ff, var(--accent-gold))";
-                
-                layerInfinite.style.opacity = '0';
-                chassis.style.opacity = '1';
-
-                playSound('beep');
-
-                log("> 💤 MODO INFINITE PRIME DESATIVADO COM SUCESSO.", "log-highlight");
-                speakDriverVoice("System Normal.");
-            }
+        .layer-infinite-prime {
+            z-index: 4;
+            background-image: url('wolf_infinite_prime.png');
+            opacity: 0;
+            pointer-events: none;
+            background-color: #003333;
         }
 
-        function triggerFinisher() {
-            if (isSystemLocked) return;
-
-            const hasWolf = document.getElementById('chkWolfCoin').checked;
-            const m1 = document.getElementById('memory1').value;
-            const m2 = document.getElementById('memory2').value;
-            const chave = `${m1}-${m2}`;
-            const viewport = document.getElementById('riderViewport');
-            const chassis = document.getElementById('layerChassis');
-            const bestMatchLayer = document.getElementById('layerBestMatch');
-            const splitContainer = document.getElementById('riderSplitContainer');
-            const layerOverload = document.getElementById('layerOverload');
-            const layerInfinite = document.getElementById('layerInfinitePrime');
-
-            if (!hasWolf) {
-                playSound('error');
-                log("> ERRO: Impossível executar Finisher sem o Chassi da Wolf Coin!", "log-error");
-                speakDriverVoice("Error. Wolf Coin missing.");
-                return;
-            }
-
-            viewport.classList.remove('anim-wolf-kick', 'anim-dual-break', 'anim-infinite-nova', 'anim-calamity');
-            playSound('finisher');
-
-            if (isInfinitePrimeActive) {
-                viewport.classList.add('anim-infinite-nova');
-                log("> 🌟 INFINITE NOVA BREAK EXECUTADO COM A WOLF FORM!", "log-infinite");
-                log("> 💫 <span class='log-infinite'>COMPRESSÃO ENERGÉTICA MÁXIMA ATRAVESSANDO O W-ACCEL DRIVER!</span>", "log-infinite");
-                
-                speakDriverVoice("Infinite Prime Finish! Infinite Nova Break!");
-                return;
-            }
-
-            if (isOverloadActive) {
-                viewport.classList.add('anim-calamity');
-                log("> ⚡ OVERLOAD CALAMITY BREAK EXECUTADO NA WOLF FORM!", "log-finisher");
-                log("> ⚠️ <span class='log-error'>COMPRESSÃO INSTÁVEL! ONDAS DE CHOQUE DESTRUIDAS!</span>", "log-error");
-                
-                speakDriverVoice("Overload Finish! Maximum Corruption... System Shutdown!");
-
-                setSystemControlsEnabled(false);
-                isOverloadActive = false;
-                document.getElementById('btnOverload').style.background = "linear-gradient(135deg, #8e44ad, #b53737)";
-
-                setTimeout(() => {
-                    viewport.classList.remove('overload-active', 'anim-calamity');
-                    layerOverload.style.opacity = '0';
-                    chassis.style.opacity = '1';
-                    bestMatchLayer.style.opacity = '0';
-                    splitContainer.style.opacity = '0';
-                    document.getElementById('memory1').value = "None";
-                    document.getElementById('memory2').value = "None";
-                    updateMemoryInfo();
-
-                    let timeLeft = 12;
-                    log(`> APAGÃO CRÍTICO! USUÁRIO EXAUSTO. RECONEXÃO EM: <span class="log-warning">${timeLeft}s</span>`, "log-error");
-
-                    if (cooldownTimer) clearInterval(cooldownTimer);
-                    cooldownTimer = setInterval(() => {
-                        timeLeft--;
-                        if (timeLeft > 0) {
-                            const logs = document.querySelectorAll('.log-entry');
-                            logs[logs.length - 1].innerHTML = `> APAGÃO CRÍTICO! USUÁRIO EXAUSTO. RECONEXÃO EM: <span class="log-warning">${timeLeft}s</span>`;
-                        } else {
-                            clearInterval(cooldownTimer);
-                            setSystemControlsEnabled(true);
-                            playSound('beep');
-                            log("> ✅ Driver reativado. Sinais vitais estabilizados.", "log-highlight");
-                            speakDriverVoice("System online.");
-                        }
-                    }, 1000);
-                }, 2500);
-                return;
-            }
-
-            if (m1 !== "None" && m2 !== "None" && bestMatches[chave] && !bestMatches[chave].name.includes("PROIBIDO")) {
-                viewport.classList.add('anim-dual-break');
-                log(`> ⚔️ BEST MATCH FINISH! DUAL ELEMENT BREAK (${bestMatches[chave].name.toUpperCase()})!`, "log-finisher");
-                log("> 🌀 GATILHO ACIONADO: COMPRESSÃO ENERGÉTICA EM SINCRONIA COM O W-ACCEL DRIVER!");
-                
-                speakDriverVoice("Best Match Finish! Dual Element Break!");
-                return;
-            }
-
-            viewport.classList.add('anim-wolf-kick');
-            log("> 🐺 WOLF FORM FINISH! KINETIC STRIKE!", "log-finisher");
-            log("> 💥 LÂMINA DE CORTE CINÉTICO DE ALTA RESISTÊNCIA ACIONADA!");
-            
-            speakDriverVoice("Wolf Finish! Maximum Bite!");
+        .layer-bestmatch {
+            z-index: 2;
+            opacity: 0;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            pointer-events: none;
+            transition: opacity 0.3s ease-in-out;
+            background-color: #112211;
         }
 
-        function log(msg, type = '') {
-            const consoleLog = document.getElementById('console-log');
-            const entry = document.createElement('div');
-            entry.className = `log-entry ${type}`;
-            entry.innerHTML = msg;
-            consoleLog.appendChild(entry);
-            consoleLog.scrollTop = consoleLog.scrollHeight;
+        .rider-split-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 2;
+            display: flex;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
         }
-    </script>
-</body>
-</html>
+
+        .rider-half {
+            width: 50%;
+            height: 100%;
+            background-size: 280px 370px;
+            background-repeat: no-repeat;
+            position: absolute;
+            top: 0;
+            background-color: #1a1a2a;
+        }
+
+        .rider-half-left { left: 0; background-position: left center; }
+        .rider-half-right { left: 50%; background-position: right center; }
+
+        /* --- PAINEL LATERAL DE INFORMAÇÕES DA MEMORY --- */
+        .memory-info-panel {
+            width: 280px;
+            height: 370px;
+            background: #121218;
+            border: 2px solid #00ffcc;
+            border-radius: 15px;
+            padding: 10px;
+            box-sizing: border-box;
+            box-shadow: 0 0 15px rgba(0, 255, 204, 0.2);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            overflow-y: auto;
+        }
+
+        .memory-info-panel h3 {
+            color: #00ffcc;
+            margin-top: 0;
+            margin-bottom: 6px;
+            font-size: 12px;
+            text-transform: uppercase;
+            border-bottom: 1px dashed #00ffcc;
+            padding-bottom: 4px;
+            letter-spacing: 1px;
+            text-align: center;
+        }
+
+        .memory-slot-card {
+            background: #1a1a24;
+            border: 1px solid #333;
+            border-radius: 8px;
+            padding: 6px 8px;
+            margin-bottom: 4px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .memory-slot-card:last-child {
+            margin-bottom: 0;
+        }
+
+        .memory-slot-title {
+            font-size: 9px;
+            color: #ff9999;
+            margin-bottom: 2px;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+        .memory-data-row {
+            font-size: 10px;
+            margin-bottom: 2px;
+            line-height: 1.2;
+        }
+
+        .memory-data-row span {
+            color: var(--accent-gold);
+            font-weight: bold;
+        }
+
+        .memory-concept-row {
+            font-size: 9px;
+            color: #b0b0b0;
+            margin-top: 2px;
+            font-style: italic;
+            border-top: 1px dotted #333;
+            padding-top: 2px;
+        }
+
+        /* Animações e Estilos de Combate */
+        @keyframes transformation-pulse {
+            0% { box-shadow: 0 0 10px var(--accent-red); }
+            50% { box-shadow: 0 0 30px var(--accent-red), 0 0 50px #fff; }
+            100% { box-shadow: 0 0 10px var(--accent-red); }
+        }
+
+        @keyframes overload-glitch {
+            0% { box-shadow: 0 0 20px #ff00ff, inset 0 0 15px #ff0000; filter: hue-rotate(0deg); }
+            50% { box-shadow: 0 0 50px #ff0000, inset 0 0 30px #ffff00; filter: hue-rotate(20deg) contrast(150%); }
+            100% { box-shadow: 0 0 20px #ff00ff, inset 0 0 15px #ff0000; filter: hue-rotate(0deg); }
+        }
+
+        @keyframes infinite-prime-anim {
+            0% { box-shadow: 0 0 25px #00ffff, inset 0 0 15px #ffffff; filter: brightness(1.2) hue-rotate(180deg); transform: scale(1); }
+            50% { box-shadow: 0 0 50px var(--accent-gold), inset 0 0 30px #00ffff; filter: brightness(1.6) hue-rotate(220deg); transform: scale(1.02); }
+            100% { box-shadow: 0 0 25px #00ffff, inset 0 0 15px #ffffff; filter: brightness(1.2) hue-rotate(180deg); transform: scale(1); }
+        }
+
+        @keyframes error-glitch {
+            0% { box-shadow: 0 0 20px #ff0000, inset 0 0 20px #ff0000; transform: translate(0, 0); filter: invert(0); }
+            20% { transform: translate(-4px, 2px); filter: invert(0.3); }
+            40% { transform: translate(4px, -2px); filter: invert(0); }
+            60% { transform: translate(-2px, -2px); filter: invert(0.5); }
+            80% { transform: translate(2px, 2px); filter: invert(0); }
+            100% { box-shadow: 0 0 40px #ff0000, inset 0 0 30px #ff0000; transform: translate(0, 0); }
+        }
+
+        @keyframes kick-anim {
+            0% { transform: scale(1) translateY(0); filter: brightness(1); }
+            30% { transform: scale(1.15) translateY(-25px); filter: brightness(1.8) drop-shadow(0 0 20px var(--accent-gold)); }
+            50% { transform: scale(0.9) translateY(15px); filter: brightness(2.5); }
+            100% { transform: scale(1) translateY(0); filter: brightness(1); }
+        }
+
+        @keyframes dual-finisher-anim {
+            0% { filter: hue-rotate(0deg); transform: scale(1); }
+            25% { transform: scale(1.1) skewX(5deg); filter: brightness(2) saturate(200%); }
+            50% { transform: scale(1.1) skewX(-5deg); filter: brightness(2.5) hue-rotate(180deg); }
+            75% { transform: scale(1.05); filter: brightness(1.5); }
+            100% { filter: hue-rotate(0deg); transform: scale(1); }
+        }
+
+        @keyframes infinite-nova-anim {
+            0% { filter: brightness(1) saturate(100%); transform: scale(1) rotate(0deg); }
+            30% { filter: brightness(2.5) drop-shadow(0 0 40px #00ffff); transform: scale(1.15) rotate(3deg); }
+            60% { filter: brightness(3) hue-rotate(90deg); transform: scale(0.95) rotate(-3deg); }
+            100% { filter: brightness(1); transform: scale(1) rotate(0deg); }
+        }
+
+        @keyframes overload-calamity-anim {
+            0% { filter: invert(0) brightness(1); transform: scale(1); }
+            20% { filter: invert(0.7) contrast(200%) drop-shadow(0 0 35px var(--accent-red)); transform: scale(1.12) rotate(2deg); }
+            40% { filter: invert(0.2) contrast(300%) hue-rotate(-50deg); transform: scale(0.95) rotate(-2deg); }
+            60% { filter: invert(0.9) brightness(2); transform: scale(1.15); }
+            80% { filter: invert(0.3); transform: scale(1.05); }
+            100% { filter: invert(0); transform: scale(1); }
+        }
+
+        .anim-wolf-kick { animation: kick-anim 0.8s ease-in-out; border-color: var(--accent-gold) !important; }
+        .anim-dual-break { animation: dual-finisher-anim 1s ease-in-out; border-color: #00ffcc !important; }
+        .anim-infinite-nova { animation: infinite-nova-anim 1.2s ease-in-out; border-color: #00ffff !important; }
+        .anim-calamity { animation: overload-calamity-anim 1.2s infinite alternate !important; border-color: #ff0055 !important; }
+
+        .overload-active {
+            animation: overload-glitch 0.4s infinite alternate !important;
+            border-color: #ff00ff !important;
+        }
+
+        .infinite-prime-active {
+            animation: infinite-prime-anim 1.5s infinite alternate !important;
+            border-color: #00ffff !important;
+        }
+
+        .error-active {
+            animation: error-glitch 0.3s infinite alternate !important;
+            border-color: #ff0000 !important;
+        }
+        
+        /* --- ÁREA DE CONTROLES --- */
+        .controls {
+            width: 100%;
+            max-width: 575px;
+            background: #16161d;
+            padding: 15px;
+            border-radius: 12px;
+            border: 1px solid #333;
+            text-align: left;
+            box-sizing: border-box;
+        }
+
+        .control-group {
+            margin-bottom: 12px;
+        }
+
+        label {
+            display: block;
+            color: #ff9999;
+            margin-bottom: 4px;
+            font-weight: bold;
+            font-size: 13px;
+        }
+
+        select, button {
+            width: 100%;
+            padding: 12px;
+            background: #222;
+            color: #fff;
+            border: 1px solid #444;
+            border-radius: 6px;
+            font-size: 15px;
+            box-sizing: border-box;
+            -webkit-appearance: none;
+        }
+
+        select:disabled, button:disabled {
+            background: #111;
+            color: #555;
+            border-color: #333;
+            cursor: not-allowed;
+            opacity: 0.6;
+        }
+
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            color: #00ffcc;
+            margin-top: 5px;
+            font-size: 13px;
+        }
+
+        .checkbox-group input {
+            width: 20px;
+            height: 20px;
+        }
+
+        .button-row {
+            display: flex;
+            gap: 8px;
+            margin-top: 12px;
+        }
+
+        button.btn-hensh {
+            flex: 2;
+            background: linear-gradient(135deg, var(--accent-red), #880e4f);
+            color: white;
+            border: none;
+            padding: 14px;
+            font-size: 16px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+        }
+
+        button.btn-overload {
+            flex: 1;
+            background: linear-gradient(135deg, #8e44ad, #b53737);
+            color: white;
+            border: none;
+            padding: 14px;
+            font-size: 12px;
+            font-weight: bold;
+            text-transform: uppercase;
+            cursor: pointer;
+        }
+
+        button.btn-infinite-prime {
+            flex: 1;
+            background: linear-gradient(135deg, #00ffff, #0055ff, var(--accent-gold));
+            color: #000;
+            border: 2px solid #ffffff;
+            padding: 14px;
+            font-size: 11px;
+            font-weight: bold;
+            text-transform: uppercase;
+            cursor: pointer;
+        }
